@@ -1,4 +1,14 @@
-const { defineConfig } = require('@vue/cli-service')
+const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
-  transpileDependencies: true
-})
+  transpileDependencies: true,
+});
+module.exports = {
+  chainWebpack: (config) => {
+    config.module
+      .rule("sass")
+      .test(/\.sass$/)
+      .use("sass-loader")
+      .loader("sass-loader")
+      .end();
+  },
+};
